@@ -16,26 +16,29 @@ export function TelefonLista()
         
     })
     return (
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Brand</th>
-                    <th>Model</th>
-                    <th>Price</th>
-                </tr>
-            </thead>
-            <tbody>
-                {phones.map((phone, index) =>
-                (
-                    <tr key={index}>
-                        <td>{phone.Id}</td>
-                        <td>{phone.Brand}</td>
-                        <td>{phone.Model}</td>
-                        <td>{phone.Price}</td>
+        <>
+            <h2>Telefon lista</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Price</th>
                     </tr>
-                ))}
-            </tbody>
-        </table>
+                </thead>
+                <tbody>
+                    {phones.map((phone, index) =>
+                    (
+                        <tr key={index}>
+                            <td>{phone.Id}</td>
+                            <td>{phone.Brand}</td>
+                            <td>{phone.Model}</td>
+                            <td>{phone.Price}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
+        </>
     )
 }
