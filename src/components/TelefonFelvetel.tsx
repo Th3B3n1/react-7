@@ -1,22 +1,35 @@
 import { useState } from "react"
 
+interface Response
+{
+    error: string,
+    message: string,
+}
+
+interface Phone
+{
+    brand: string,
+    model: string,
+    price: number,
+}
+
 export function TelefonFelvetel()
 {
-    const [brand, setBrand] = useState("");
-    const [model, setModel] = useState("");
-    const [price, setPrice] = useState(0);
-    const [error, setError] = useState("");
-    const [success, setSuccess] = useState("");
+    const [brand, setBrand] = useState<string>("");
+    const [model, setModel] = useState<string>("");
+    const [price, setPrice] = useState<number>(0);
+    const [error, setError] = useState<string>("");
+    const [success, setSuccess] = useState<string>("");
 
     async function sendData(e: React.FormEvent<HTMLFormElement>)
     {
         e.preventDefault();
-        let data = {
+        let data: Phone = {
             brand: brand,
             model: model,
             price: price
         }
-        let response = await fetch("http://localhost:3000/phones", {
+        let response: Response = await fetch("http://localhost:3000/phones", {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
