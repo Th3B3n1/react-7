@@ -1,10 +1,27 @@
+import './index.css'
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { TelefonLista } from './components/TelefonLista';
+import { TelefonFelvetel } from './components/TelefonFelvetel';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <TelefonLista />,
+  },
+  {
+    path: "/telefonok",
+    element: <TelefonLista />,
+  },
+  {
+    path: "/telefonfelvetel",
+    element: <TelefonFelvetel />,
+  },
+]);
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </StrictMode>,
 )
